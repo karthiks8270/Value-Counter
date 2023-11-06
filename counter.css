@@ -1,0 +1,33 @@
+h1{
+    font-size: 40px;
+}
+nav{
+    font-size: 70px;
+}
+#bt-1{
+    background-color: red;
+    color: white;
+    height: 40px;
+    width: 60px;
+
+}
+#bt-2{
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 75px;
+}
+#bt-3{
+    background-color:green;
+    color: white;
+    height: 40px;
+    width: 60px;
+}
+.counter-1{
+    width: 250px; 
+    border: 2px solid black;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    padding: 15px;
+}
