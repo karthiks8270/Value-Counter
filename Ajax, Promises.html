@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>Track me</button>
+  <script>
+    /*  console.log('A');
+ 
+     setTimeout(() => {
+       console.log('B');
+     }, 2000)
+ 
+     setTimeout(() => {
+       console.log('C');
+     }, 0)
+ 
+ 
+     console.log('D'); */
+
+    /*   console.log('A');
+  
+      setTimeout(() => {
+        console.log('B');
+      }, 2000)
+  
+      let count = 0;
+  
+      for (let i = 1; i <= 1000000000; i++) {
+        count += i
+      }
+  
+      console.log(count);
+  
+      console.log('C'); */
+
+
+    /*  console.log('A');
+ 
+     const btn = document.querySelector('button');
+ 
+     btn.addEventListener('click', () => {
+       console.log('Button was clicked!');
+     })
+ 
+     console.log('B'); */
+
+
+    /*
+    function trackHandler() {
+       navigator.geolocation.getCurrentPosition((posData) => {
+         setTimeout(() => {
+           console.log(posData);
+         }, 2000)
+       }, (error) => {
+         console.log(error);
+       })
+ 
+       setTimeout(() => {
+         console.log('Timer Done!');
+       }, 0)
+ 
+       console.log('Getting Position....');
+     }
+ 
+     const btn = document.querySelector('button');
+ 
+     btn.addEventListener('click', trackHandler) 
+     */
+
+
+    //Promise
+
+    /* 
+    Promise is an Object that is used as a placeholder for thr future result of an asynchronous operation.
+
+    Promise is a container for an asynchronous delivered value.
+    */
+
+    //creating promise
+
+    /*     const lottery = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (Math.random() >= 0.5) {
+              resolve("You won!🎉")
+            } else {
+              reject("You lost!😢")
+            }
+          }, 2000)
+        }); */
+
+    //Handling promise.
+    /*     lottery.then((res) => {
+          console.log(res);
+        }).catch((err) => {
+          console.log(err);
+        }).finally(() => {
+          console.log('Completed!');
+        });
+    */
+
+    //Promise 1
+
+    function timerFn(duration) {
+      const promise = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('Done!');
+        }, duration)
+      })
+
+      return promise;
+    }
+
+    //Promise 2
+
+    function positionPromise(opts) {
+      const promise = new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition((posData) => {
+          resolve(posData)
+        }, (err) => {
+          reject(err)
+        })
+      })
+
+      return promise;
+    }
+
+    /* 
+        function trackHandler() {
+          let position;
+          positionPromise().then((posData) => {
+            position = posData
+            return timerFn(2000);
+          }).then((msg) => {
+            console.log(msg, position);
+          }).catch((err)=>{
+            console.log(err)
+          })
+    
+          timerFn(0).then(() => {
+            console.log('Timer done!');
+          })
+          console.log('Getting Position....');
+        }
+    
+        const btn = document.querySelector('button');
+    
+        btn.addEventListener('click', trackHandler);
+    
+    */
+
+
+    /////////////////////////////////////////////////////////
+    //async, await
+
+    /*     async function trackHandler() {
+          try {
+            const posData = await positionPromise();
+            const timerData = await timerFn(2000);
+    
+            console.log(timerData, posData);
+          } catch (err) {
+            console.log(err);
+          }
+    
+          console.log('Getting Position....');
+    
+        }
+    
+        const btn = document.querySelector('button');
+    
+        btn.addEventListener('click', trackHandler); */
+
+
+    //Promise.race()
+
+    /*   Promise.race([positionPromise(), timerFn(2000)]).then((res) => {
+        console.log(res);
+      })
+   */
+    //Promise.all()
+
+    /*     Promise.all([positionPromise(), timerFn(2000)]).then((res) => {
+          console.log(res);
+        }).catch((err) => { console.log(err); }) */
+
+
+    //Promise.allSettled()
+    /* 
+        Promise.allSettled([positionPromise(), timerFn(2000)]).then((res) => {
+          console.log(res);
+        }) */
+
+
+
+    const person = {
+      name: "Peter",
+      age: 25
+    };
+
+
+
+    // localStorage.setItem('details', JSON.stringify(person))
+
+    // setTimeout(() => {
+    //   localStorage.removeItem('details')
+    // }, 5000)
+
+    /*  const value = localStorage.getItem('details')
+
+     console.log(JSON.parse(value)); */
+
+    // sessionStorage.setItem('details', JSON.stringify(person))
+
+
+
+  </script>
+
+</body>
+
+</html>
