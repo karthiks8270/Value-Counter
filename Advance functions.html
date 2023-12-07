@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <button>click</button>
+  <script>
+    //Default parameters
+
+    /* 
+        We can assign a parameter a default value that reference to other parameteres
+        */
+
+    /*  function add(num1, num2, num3 = 2 * num2) {
+          return num1 + num2 + num3;
+        }
+    
+        console.log(add(3, 2));
+     */
+
+    /////////////////////////////////////////////////////////////////
+    //first-class function
+
+    /* 
+       Js has a fundamental property called first class functions, helps us to write higher order function 
+     -> JS treats functions as first class citizens
+     -> functions are treated as values
+     -> functions are also type of object 
+       */
+
+    /*     let x = 5;
+       
+           let add = function () { }; // 5 , "hello", true */
+
+    //////////////////////////////////////////////////////////////////
+    // Higher order function
+
+    /*   function child() { console.log('hello') };
+     
+         function higher(a) {
+           return a
+         }
+     
+         let x = higher(child)
+     
+         x()
+      */
+
+    /*     
+      const btn = document.querySelector('button');
+   
+       btn.addEventListener('click', () => {
+         console.log('Button was clicked!');
+       }) 
+     */
+
+    //////////////////////////////////////////////////////////////////
+    // callback function
+
+    /* 
+     The function which is passing as an argument into another function is called callback function.
+ 
+     callback function will be called by higher order function later.
+     */
+
+    // const str = "Javascript is best"; //"JAVSCRIPT is best"
+
+    // const str = 5;
+
+    /*
+     //callback function
+     function upper(a) {
+       try {
+         if (typeof a === 'string') {
+           const [first, ...others] = a.split(' ');
+           return [first.toUpperCase(), ...others].join(' ');
+         } else {
+           throw ('Invalid data!')
+         }
+       } catch (err) {
+         return err;
+       }
+     }
+ 
+     //higer order function
+     function textTrans(char, fn) {
+       console.log(`Output is: ${fn(char)}`);
+     }
+ 
+     textTrans(str, upper);
+     */
+
+    //////////////////////////////////////////////////////////
+    //call, apply and bind
+
+    /* 
+     Call method allows js to set "this" explictly/ manually. the first argument of the call method ts the place where exactly this points, the reamining raguments fofr the function call.
+     */
+
+    /*     const apple = {
+       brand: 'Apple',
+       model: 'iPhone 15',
+     }
+ 
+     const samsung = {
+       brand: 'Samsung',
+       model: 'Galaxy S23',
+     }
+ 
+     const printInfo = function (mon, year) {
+       console.log(`${this.brand} ${this.model} was released on ${mon}, ${year}`);
+     } */
+    /* 
+         printInfo.call(apple, 'Sep', 2023);
+     
+         printInfo.call(apple, "Oct", 2023) */
+
+    ///////////////////////////////////////////////////
+    //Apply
+    /* 
+     It's exactly same as call method, the only difference is that apply doesn't receive a list of arguments, It takes array of arguments.
+     */
+    /*   const arguments1 = ['Sep', 2023];
+       const arguments2 = ['Mar', 2023]; */
+
+    /*   printInfo.apply(apple, arguments1);
+       printInfo.apply(samsung, arguments2) */
+
+    /*  printInfo.call(apple, ...arguments1);
+      printInfo.call(samsung, ...arguments2) */
+
+    ////////////////////////////////////////////////////////////////////////////////
+    //Bind
+
+    /* 
+     Just like call, Bind allows to manually set this keyword for any function call, the difference is bind doesn't immedialtley call the function instead it returns a new function where this keyword is bound.
+     */
+
+    /* const newFnApple = printInfo.bind(apple);
+ 
+     newFnApple('Sep', 2023);
+     newFnApple('Oct', 2024);
+  */
+    //////////////////////////////////////////////////////////////////////////////////
+    // Closure
+
+    /* 
+    Any function always access to the variable environment of the execution context in which the function was created even after the execution context of the function which gives birth is gone.
+    */
+
+    function count() {
+      let a = 0;
+      return function () {
+        a++;
+        console.log(a);
+      }
+    }
+
+    const res = count();
+
+    res();
+
+    //function currying
+
+    /*  function volume(l, b, h) {
+       return l * b * h;
+     }
+
+     console.log(volume(2, 3, 4)); */
+
+    /* function volume(l) {
+      return function (b) {
+        return function (h) {
+          return l * b * h
+        }
+      }
+    }
+
+    console.log(volume(2)(3)(4)); */
+
+    ////////////////////////////////////////////////////
+    // Immediately Invoked Function Expression
+
+    /*
+    syntax:
+   (function(){
+      //code to be executed
+    }) ()    
+    */
+    /*
+        (function () {
+          var x = 3;
+          console.log('Hello');
+    
+        })() */
+
+
+
+
+  </script>
+</body>
+
+</html>
